@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mon Projet — Syrine Chebbi</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --accent:#7c3aed;
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071029 0%, #071028 40%, #071732 100%), var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:48px;
+      height:48px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent), #334155);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:18px;
+      box-shadow: 0 6px 18px rgba(12,18,30,0.6);
+    }
+
+    nav a{
+      color:var(--muted);
+      margin-left:16px;
+      text-decoration:none;
+      font-weight:600;
+    }
+    nav a:hover{color:#fff}
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:28px;
+      align-items:center;
+      margin-bottom:28px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      padding:24px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    h1{font-size:32px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+
+    .cta{
+      display:flex;
+      gap:12px;
+      margin-top:16px;
+    }
+    .btn{
+      padding:10px 14px;
+      border-radius:10px;
+      background:linear-gradient(90deg,var(--accent), #5b21b6);
+      color:white;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow: 0 6px 22px rgba(124,58,237,0.18);
+    }
+    .btn.ghost{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--muted);
+      font-weight:600;
+      box-shadow:none;
+    }
+
+    .meta{
+      display:flex;
+      gap:12px;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .stats{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+    }
+    .stat{
+      background:var(--glass);
+      padding:10px 12px;
+      border-radius:10px;
+      font-weight:700;
+      color:#fff;
+      font-size:14px;
+    }
+
+    /* right column preview */
+    .preview{
+      padding:18px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      min-height:220px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      justify-content:center;
+      align-items:flex-start;
+    }
+    .code-sample{
+      width:100%;
+      background:#020617;
+      padding:12px;
+      border-radius:8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+      font-size:13px;
+      color:#9fb7ff;
+      overflow:auto;
+    }
+
+    /* features */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .feature{
+      background:var(--card);
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .feature h3{margin:0 0 8px;font-size:16px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    footer{
+      margin-top:28px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    /* responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(1,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">SC</div>
+        <div>
+          <div style="font-weight:800">Syrine Chebbi</div>
+          <div style="font-size:12px;color:var(--muted)">Étudiante — Développeuse</div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#projets">Projets</a>
+        <a href="#apropos">À propos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Mon premier projet Git</h1>
+        <p class="lead">Exemple de page de projet. Décris ici ton projet, pourquoi il est utile, les technologies utilisées et comment lancer le projet localement.</p>
+
+        <div class="meta">
+          <div>HTML • CSS • Git</div>
+          <div>•</div>
+          <div>Open-source</div>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="#" onclick="alert('Remplace ce lien par celui de ton dépôt GitHub')">Voir le dépôt</a>
+          <a class="btn ghost" href="#contact">Me contacter</a>
+        </div>
+
+        <div class="stats" aria-hidden="true">
+          <div class="stat">⭐ 12</div>
+          <div class="stat">Forks 3</div>
+          <div class="stat">Commits 7</div>
+        </div>
+      </div>
+
+      <aside class="preview card">
+        <div style="font-size:13px;color:var(--muted)">Extrait du README</div>
+        <pre class="code-sample"># Mon premier projet Git
+git clone https://github.com/ton-utilisateur/mon-projet.git
+cd mon-projet
+npm install
+npm start</pre>
+        <small style="color:var(--muted)">Ouvre ce dépôt localement et commence à coder 👩‍💻</small>
+      </aside>
+    </section>
+
+    <section id="projets">
+      <div class="card">
+        <h2 style="margin-top:0">Fonctionnalités</h2>
+        <div class="grid" role="list">
+          <article class="feature" role="listitem">
+            <h3>Installation simple</h3>
+            <p>Instructions claires pour cloner et lancer le projet localement.</p>
+          </article>
+          <article class="feature" role="listitem">
+            <h3>Responsive</h3>
+            <p>Design qui s'adapte aux mobiles et aux écrans larges.</p>
+          </article>
+          <article class="feature" role="listitem">
+            <h3>Prêt pour GitHub</h3>
+            <p>README, licence et structure propre pour une mise en ligne rapide.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="apropos" style="margin-top:18px">
+      <div class="card">
+        <h2 style="margin-top:0">À propos</h2>
+        <p class="lead">Je m'appelle Syrine — ici tu peux expliquer ton parcours, les technologies que tu apprends et ce que tu recherches (stages, projets, contributions...).</p>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px">
+      <div class="card">
+        <h2 style="margin-top:0">Contact</h2>
+        <form onsubmit="event.preventDefault(); alert('Merci — ajoute un script serveur pour gérer les envois');">
+          <label style="display:block;margin-bottom:8px">
+            <div style="font-size:13px;color:var(--muted)">Email</div>
+            <input type="email" required placeholder="ton.email@example.com" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-top:6px">
+          </label>
+
+          <label style="display:block;margin:16px 0 10px">
+            <div style="font-size:13px;color:var(--muted)">Message</div>
+            <textarea required placeholder="Ton message..." rows="4" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-top:6px"></textarea>
+          </label>
+
+          <div style="display:flex;gap:10px;align-items:center">
+            <button class="btn" type="submit">Envoyer</button>
+            <small style="color:var(--muted)">ou contacte-moi sur GitHub</small>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2025 Syrine Chebbi</div>
+      <div style="display:flex;gap:12px">
+        <a href="#" style="color:var(--muted);text-decoration:none">GitHub</a>
+        <a href="#" style="color:var(--muted);text-decoration:none">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
